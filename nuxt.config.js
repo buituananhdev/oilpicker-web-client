@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'web-kindergarten',
+    title: 'web-client',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,7 +12,11 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
+      },
     ]
   },
 
@@ -34,7 +38,58 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/toast',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/dotenv',
+    'nuxt-vue-multiselect'
   ],
+
+  axios: {
+    baseURL: process.env.BASE_URL_API,
+  },
+
+  auth: {
+    strategies: {
+        local: {
+            user: {
+                property: 'user',
+                autoFetch: false,
+            },
+            token: {
+                property: 'token',
+                global: true,
+                type: 'Bearer',
+            },
+            refreshToken: {
+                property: 'refreshToken',
+                data: 'refreshToken',
+                maxAge: 60 * 60 * 24 * 30,
+            },
+            endpoints: {
+                login: {
+                    url: process.env.BASE_URL_API + '/auth/login',
+                    method: 'post',
+                },
+                logout: {
+                    url: process.env.BASE_URL_API + '/auth/logout',
+                    method: 'post',
+                },
+                user: {
+                    url: process.env.BASE_URL_API + '/auth/user',
+                    method: 'get',
+                },
+            },
+        },
+    },
+    redirect: {
+        login: '/',
+        logout: undefined,
+        home: '/assets',
+    },
+    watchLoggedIn: true,
+    rewriteRedirects: true,
+},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

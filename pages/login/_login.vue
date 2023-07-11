@@ -13,7 +13,7 @@ export default {
         <div class="login-container flex items-center justify-between">
             <div class="w-1/3 h-full relative flex justify-center items-center mobile-container">
                 <div class="login-content w=[318px] h-[450px] flex flex-col justify-center items-center">
-                    <img style="width: 280px;" src="../../assets/icons/base/sucodev_logo.png" alt="" class="relative top-10">
+                    <img style="width: 280px;" src="" alt="" class="relative top-10">
                     <h2 class="font-semibold" style="font-size: 27px;">Sign In</h2>
                     <form class="w-full flex flex-col gap-4">
                         <div class="form-row flex flex-col gap-2">

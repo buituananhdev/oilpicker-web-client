@@ -16,6 +16,7 @@
     "core-js": "^3.25.3",
     "dotenv": "^16.3.1",
     "nuxt": "^2.15.8",
+    "nuxt-vue-multiselect": "^1.0.4",
     "vee-validate": "^4.10.6",
     "vue": "^2.7.10",
     "vue-flatpickr-component": "^11.0.3",
@@ -23,7 +24,7 @@
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
     "vuex": "^4.1.0"
-  },
+  },  
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.25",

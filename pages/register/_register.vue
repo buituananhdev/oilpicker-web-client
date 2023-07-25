@@ -2,15 +2,14 @@
 <script>
 export default {
     data(){
-        return{
+        return {
             user: {}
         }
     },
     methods: {
-        SignIn() {
-            this.$router.push('/');
-        },
-
+        Register() {
+            this.$router.push('/login');
+        }
     }
 }
 </script>
@@ -19,36 +18,29 @@ export default {
         <Header
             :isSignIn="false"
         />
-        <div  lass="flex justify-center items-center mx-auto w-full mt-8">
-            <div class="login-container mx-auto rounded-2xl mt-8 flex items-center justify-between">
-                <div class="w-2/5 h-full relative flex justify-center items-center mobile-container">
-                    <div class="login-content w=[318px] h-[450px] flex flex-col justify-center items-center">
+        <div class=" flex justify-center items-center">
+            <div class="register-container rounded-2xl flex items-center justify-between">
+                <div class="w-2/5 h-full mx-auto mt-8 relative flex justify-center items-center mobile-container">
+                    <div class="register-content w=[318px] h-[450px] flex flex-col justify-center items-center">
                         <img style="width: 280px;" src="" alt="" class="relative top-10">
-                        <h2 class="font-semibold" style="font-size: 27px;"> Đăng nhập </h2>
+                        <h2 class="font-semibold" style="font-size: 27px;"> Đăng kí </h2>
                         <form class="w-full flex flex-col gap-4">
                             <div class="form-row flex flex-col gap-2">
                                 <div class="font-normal label">Email <span style="color: #FF3D00;">*</span> </div>
-                                <input type="text" placeholder="Email của bạn" v-model="user.email">
+                                <input type="text" placeholder="Your email" v-model="user.email">
                             </div>
                             <div class="form-row flex flex-col gap-2">
                                 <div class="font-normal label"> Mật khẩu <span style="color: #FF3D00;">*</span> </div>
-                                <input type="password" placeholder="Mật khẩu của bạn" v-model="user.password">
+                                <input type="password" placeholder="Your password">
+                            </div>
+                            <div class="form-row flex flex-col gap-2">
+                                <div class="font-normal label"> Nhập mật khẩu xác nhận <span style="color: #FF3D00;">*</span> </div>
+                                <input type="password" placeholder="Your password" v-model="user.password">
                             </div>
                         </form>
-                        <div @click="SignIn()" class="submit-btn flex justify-center items-center w-full"> Đăng nhập </div>
-                        <button class="flex justify-center items-center py-2 w-full rounded-[10px] border my-6 gap-x-2"> 
-                            <img 
-                                src="../../assets/icons/login/google_icn.svg" 
-                                alt=""
-                                width="20"
-                                height="20"
-                                class="rounded-2xl "
-                            >
-                            Đăng nhập với Google 
-                        </button>
-                        
+                        <div @click="Register()" class="submit-btn flex justify-center items-center w-full"> Đăng kí</div>
                         <div class=" py-4 ">
-                            <p> Bạn chưa có tài khoản? <b class="cursor-pointer" @click="$router.push('/register')"> Đăng kí </b> </p>
+                            <p> Bạn đã có tài khoản? <b class="cursor-pointer" @click="$router.push('/login')"> Đăng nhập </b> </p>
                         </div>
                     </div>
                 </div>
@@ -57,21 +49,20 @@ export default {
                 </div>
             </div>
         </div>
-        
     </div>
+    
 </template>
 
 <style scoped>
-.login-container {
+.register-container {
     background: #fff ;
     width: 1140px;
     height: 600px;
+    margin-top: 25px;
     border-radius: 23.7px;
     overflow: hidden;
-    /* margin-top: 100px ; */
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
 .label {
     font-size: 12px;
 }
@@ -86,7 +77,7 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-    .login-content {
+    .register-content {
         width: 100%;
         height: 100%;
         padding: 0 20px;
@@ -101,7 +92,7 @@ export default {
         width: 100%;
     }
 
-    .login-container {
+    .register-container {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         width: calc(100% - 40px);
         justify-content: center;

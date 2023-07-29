@@ -2,6 +2,7 @@
     <div class="main-container overflow-auto">
         <Header 
             :isSignIn="true"
+            :order="this.order"
             @profile="profileUser" 
         />
         <div class="max-w-[1105px] mx-auto bg-red my-8">
@@ -279,15 +280,26 @@ export default {
             recurring_time: '',
             order_type: 1,
             unit_price: 0,
-            quantity: ''
+            quantity: '',
+            order: null
         };
     },
-    mounted() {
+    async mounted() {
         this.getBills();
         this.getProfile();
         this.getOilPrice();
+        this.getUserOrder();
     },  
     methods: {
+        async getUserOrder() {
+            try {
+                const res = await this.$axios.get('orders/user_orders/' + process.env.USER_ID);
+                this.order = res.data.data.find(item => item.order_type === 2);
+                console.log(this.order);
+            } catch (error) {
+                console.log(error);
+            }
+        },
         async orderBill() {
             try {
                 await this.$axios.post('/orders', {
@@ -296,8 +308,17 @@ export default {
                     recurring_day_of_week: this.recurring_day_of_week,
                     recurring_time: this.recurring_time
                 })
+                this.$toast.show('Đặt lấy dầu thành công...', {
+                    position: 'top-right',
+                    duration: 2000,
+                });
                 this.isBook = false;
             } catch (error) {
+                this.$toast.error('Không thể đặt dầu vì đang có đơn hàng...', {
+                    position: 'top-right',
+                    duration: 2000,
+                });
+                this.isBook = false;
                 console.log(error);
             }
         },

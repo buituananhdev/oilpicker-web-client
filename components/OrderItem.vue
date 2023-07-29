@@ -8,19 +8,13 @@
                 {{ itemIndex + 1 }}
             </p>
             <p class="w-2/12">
-                {{ itemProp.date_issued }}
+                {{ itemProp.order_date }}
             </p>
             <p  class="w-2/12 ">
-                {{ itemProp.quantity }} L
+                {{ itemProp.order_status }}
             </p>
             <p class="w-2/12">
-                {{ itemProp.unit_price }} VNĐ/L
-            </p>
-            <p class="w-2/12">
-                {{ itemProp.quantity * itemProp.unit_price }} VNĐ
-            </p>
-            <p class="w-2/12">
-                {{ itemProp.payment_method }} 
+                {{ itemProp.order_type == 1 ? 'Lấy ngay' : 'Định kỳ' }} VNĐ/L
             </p>
         </div>
     </div>
@@ -29,4 +23,4 @@
 export default {
     props: [ 'itemIndex', 'itemProp' ]
 }
-</script>
+</script>   

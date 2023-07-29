@@ -7,7 +7,7 @@
                 </div>
                 <div class="contact flex gap-x-5 font-semibold max-[768px]:hidden ">
                     <img src="../../assets/icons/header/phone_icn.svg" alt="">
-                    <span class="text-lg"> 0388123123 </span>
+                    <span class="text-lg"> {{ order.recurring_day_of_week + order.recurring_time }}</span>
                 </div>
                 <button class="rounded bg-[#F9982B] text-white py-2 px-4 font-semibold text-lg" v-if="!isSignIn" > Đăng nhập </button>
                 <div 
@@ -34,7 +34,7 @@
 </template>
 <script>
 export default{
-    props: [ 'isSignIn' ],
+    props: [ 'isSignIn', 'order'],
     methods:{
         profile(){
             this.$emit('profile');

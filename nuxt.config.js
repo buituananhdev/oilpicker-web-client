@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'web-client',
@@ -43,7 +43,8 @@ export default {
     '@nuxtjs/toast',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    'nuxt-vue-multiselect'
+    'nuxt-vue-multiselect',
+    '@nuxtjs/toast'
   ],
 
   axios: {
@@ -102,5 +103,6 @@ export default {
         },
       },
     },
-  }
+  },
+  buildDir: './dist'
 }

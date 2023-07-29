@@ -42,7 +42,6 @@ export default {
   modules: [
     '@nuxtjs/toast',
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
     '@nuxtjs/dotenv',
     'nuxt-vue-multiselect'
   ],
@@ -51,47 +50,47 @@ export default {
     baseURL: process.env.BASE_URL_API,
   },
 
-  auth: {
-    strategies: {
-        local: {
-            user: {
-                property: 'user',
-                autoFetch: false,
-            },
-            token: {
-                property: 'token',
-                global: true,
-                type: 'Bearer',
-            },
-            refreshToken: {
-                property: 'refreshToken',
-                data: 'refreshToken',
-                maxAge: 60 * 60 * 24 * 30,
-            },
-            endpoints: {
-                login: {
-                    url: process.env.BASE_URL_API + '/auth/login',
-                    method: 'post',
-                },
-                logout: {
-                    url: process.env.BASE_URL_API + '/auth/logout',
-                    method: 'post',
-                },
-                user: {
-                    url: process.env.BASE_URL_API + '/auth/user',
-                    method: 'get',
-                },
-            },
-        },
-    },
-    redirect: {
-        login: '/',
-        logout: undefined,
-        home: '/assets',
-    },
-    watchLoggedIn: true,
-    rewriteRedirects: true,
-},
+//   auth: {
+//     strategies: {
+//         local: {
+//             user: {
+//                 property: 'user',
+//                 autoFetch: false,
+//             },
+//             token: {
+//                 property: 'token',
+//                 global: true,
+//                 type: 'Bearer',
+//             },
+//             refreshToken: {
+//                 property: 'refreshToken',
+//                 data: 'refreshToken',
+//                 maxAge: 60 * 60 * 24 * 30,
+//             },
+//             endpoints: {
+//                 login: {
+//                     url: process.env.BASE_URL_API + '/auth/login',
+//                     method: 'post',
+//                 },
+//                 logout: {
+//                     url: process.env.BASE_URL_API + '/auth/logout',
+//                     method: 'post',
+//                 },
+//                 user: {
+//                     url: process.env.BASE_URL_API + '/auth/user',
+//                     method: 'get',
+//                 },
+//             },
+//         },
+//     },
+//     redirect: {
+//         login: '/',
+//         logout: undefined,
+//         home: '/assets',
+//     },
+//     watchLoggedIn: true,
+//     rewriteRedirects: true,
+// },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

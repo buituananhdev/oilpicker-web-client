@@ -3,20 +3,22 @@
 export default {
     data(){
         return{
-            user: {}
+            email: '',
+            password: ''
         }
     },
     methods: {
         async SignIn() {
-            await this.$auth
-                    .loginWith('local', {
-                        data: {
-                            email: this.user.email,
-                            password: this.user.password,
-                        },
-                    })
-                    .then((res) => {
-                    })
+            // await this.$auth
+            //         .loginWith('local', {
+            //             data: {
+            //                 email: this.email,
+            //                 password: this.password,
+            //             },
+            //         })
+            //         .then((res) => {
+            //             console.log(res);
+            //         })
             this.$router.push('/');
         },
 
@@ -37,11 +39,11 @@ export default {
                         <form class="w-full flex flex-col gap-4">
                             <div class="form-row flex flex-col gap-2">
                                 <div class="font-normal label">Email <span style="color: #FF3D00;">*</span> </div>
-                                <input type="text" placeholder="Email của bạn" v-model="user.email">
+                                <input type="text" placeholder="Email của bạn" v-model="email">
                             </div>
                             <div class="form-row flex flex-col gap-2">
                                 <div class="font-normal label"> Mật khẩu <span style="color: #FF3D00;">*</span> </div>
-                                <input type="password" placeholder="Mật khẩu của bạn" v-model="user.password">
+                                <input type="password" placeholder="Mật khẩu của bạn" v-model="password">
                             </div>
                         </form>
                         <div @click="SignIn()" class="submit-btn flex justify-center items-center w-full"> Đăng nhập </div>

@@ -15,6 +15,7 @@ input {
     border: 0.791px solid #D2CECE;
     background: #FFF !important;
     padding: 8px 16px;
+    min-height: 40px;
 }
 input:focus {
     outline-width: 0;

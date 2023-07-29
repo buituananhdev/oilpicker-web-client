@@ -7,7 +7,16 @@ export default {
         }
     },
     methods: {
-        SignIn() {
+        async SignIn() {
+            await this.$auth
+                    .loginWith('local', {
+                        data: {
+                            email: this.user.email,
+                            password: this.user.password,
+                        },
+                    })
+                    .then((res) => {
+                    })
             this.$router.push('/');
         },
 
@@ -15,7 +24,7 @@ export default {
 }
 </script>
 <template>
-    <div class="main-container">
+    <div class="main-container bg-gradient-to-r from-white-500 to-orange-300">
         <Header
             :isSignIn="false"
         />

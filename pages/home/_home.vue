@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="main-container overflow-auto">
         <Header
             @profile="profileUser"
@@ -112,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <div class="popup__fill--infomation w-full fixed inset-0" v-if="isFirst">
+        <div class="popup__fill--information w-full fixed inset-0">
             <div class="max-w-[700px] mx-auto relative">
                 <div class="popup-fill__profile w-full flex flex-col px-4 gap-y-5 py-4 bg-white rounded-lg absolute border top-[100px]">
                     <h2 class=" text-xl font-semibold border-b py-2 text-center "> Nhập thông tin cá nhân </h2>
@@ -195,7 +195,7 @@ export default {
             ],
             user: {
             },
-            isFirst: false,
+            isFirst: true,
             listBanks: [
                 'VietcomBank',
                 'TechcomBank',
@@ -216,4 +216,4 @@ export default {
         }
     }
 }
-</script>
+</script> -->

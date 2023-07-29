@@ -1,7 +1,7 @@
 <template>
     <div 
-        class="w-full h-[60px] flex justity-between items-center py-2 px-4" 
-        :class=" { 'bg-[#dfe0eb;]' : itemIndex % 2  }"
+        class="w-full h-[40px] flex justity-between items-center py-1 px-4" 
+        :class="{'bg-transaction': itemIndex % 2 === 1, 'bg-white': itemIndex % 2 === 0}"
     >
         <div class="w-full cursor-pointer text-center flex justify-between items-center  ">
             <p class="w-1/12">
@@ -11,16 +11,16 @@
                 {{ itemProp.date }}
             </p>
             <p  class="w-2/12 ">
-                {{ itemProp.driverName }}
+                {{ itemProp.driverName }} L
             </p>
             <p class="w-2/12">
-                {{ itemProp.price }} VNĐ
+                {{ itemProp.price }} VNĐ/L
             </p>
             <p class="w-2/12">
-                {{ itemProp.quantity }} lít
+                {{ itemProp.quantity }} VNĐ
             </p>
             <p class="w-2/12">
-                {{ itemProp.total }} VNĐ
+                {{ itemProp.total }} 
             </p>
         </div>
     </div>

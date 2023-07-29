@@ -1,23 +1,30 @@
 <template>
-    <div class="w-full border-b bg-white">
-        <div class="max-w-[1200px] mx-auto">
-            <div class="header-container flex justify-between items-center w-full py-2 px-4">
+    <div class="w-full border-b">
+        <div class="max-w-[1105px] mx-auto">
+            <div class="header-container flex justify-between items-center w-full py-2 px-4 ">
                 <div @click="goToHomePage" class="cursor-pointer">
-                    <img src="../../assets/images/logo.jpg" alt="" height="50" width="50" class="rounded-full ">
+                    <img src="../../assets/icons/header/logo_icn.svg" alt="" height="59" width="160" class="rounded-full ">
                 </div>
-                <button class="rounded bg-gray-200 py-2 px-4 font-semibold text-lg" v-if="!isSignIn" > Đăng nhập </button>
+                <div class="contact flex gap-x-5 font-semibold max-[768px]:hidden ">
+                    <img src="../../assets/icons/header/phone_icn.svg" alt="">
+                    <span class="text-lg"> 0388123123 </span>
+                </div>
+                <button class="rounded bg-[#F9982B] text-white py-2 px-4 font-semibold text-lg" v-if="!isSignIn" > Đăng nhập </button>
                 <div 
                     v-else 
-                    class="flex justify-end items-center gap-x-5 cursor-pointer w-fit"
-                    @click="profile"
+                    class="flex justify-end items-center gap-x-5 cursor-pointer w-fit text-lg"
                 >
                     <img 
-                        src="../../assets/icons/bell_icn.svg" 
+                        src="../../assets/icons/header/bell_icn.svg" 
                         alt=""
                         class="mr-4"
+                        width="18"
                     > | 
-                    <img src="../../assets/icons/user/user_icn.svg" alt="">
-                    <span class="font-semibold text-lg w-fit">  User Name</span>
+                    <div @click="profile" class="flex justify-end items-center gap-x-2 cursor-pointer w-fit ml-4">
+                        <img src="../../assets/icons/user/user_icn.svg" alt="" width="18">
+                        <div class="font-semibold text-lg w-fit min-w-[100px] text-center">  User Name</div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
